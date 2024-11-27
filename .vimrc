@@ -8,6 +8,8 @@ set expandtab
 set smarttab
 set softtabstop=4
 
+set backspace=indent,eol,start
+
 set cursorline
 
 syntax on
