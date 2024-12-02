@@ -1,5 +1,13 @@
 setup:
-`alias vim='vim -Nu ~/.vim/.vimrc'`
 
-todos:
-- move to `ftplugin`
+```bash
+# inside ~/.bash_aliases
+
+ln -s ~/.vimrc ~/.vim/.vimrc
+alias gvim='gvim -v'
+alias vi='gvim' 
+```
+
+third-party plugins:
+
+- `NERDTree`

@@ -1,5 +1,5 @@
 set number
-"set relativenumber
+set relativenumber
 
 set smartindent
 set tabstop=4
@@ -17,11 +17,15 @@ set hlsearch
 set incsearch " incremental search
 set showmatch
 
+set clipboard=unnamedplus
+
 set wildmenu
 set wildignore=*.o,*~,*.pyc,*/__pycache__/,.git/,.git/*,*.d,*.s,build/,build/*,*.png,*.bmp,*.gif,*json
 
 set ignorecase " Make search case-insensitive
 set smartcase " Make search case-sensitive if uppercase letter is used
+
+set termguicolors
 
 set wrap
 set linebreak
@@ -39,9 +43,5 @@ let &t_EI = "\e[2 q"
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-"let g:netrw_browse_split = 4
+let g:netrw_browse_split = 4
 let g:netrw_winsize = 12
-"augroup ProjectDrawer
-"  autocmd!
-"  autocmd VimEnter * :Vexplore
-"augroup END
