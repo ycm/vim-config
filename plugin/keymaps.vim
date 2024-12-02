@@ -32,9 +32,10 @@ tnoremap <C-l> <C-w>l
 
 " file find
 nnoremap <leader>ff :e **/*
-
 " buffer navigation
 nnoremap <leader>fb :ls<CR>:b<Space>
+" ctrlP buffer
+nnoremap <leader>b :CtrlPBuffer<CR>
 
 " switch to terminal normal mode
 tnoremap <Esc> <C-w>N
