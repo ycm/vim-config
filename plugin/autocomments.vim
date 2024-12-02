@@ -48,11 +48,13 @@ endfunction
 augroup CommentSingleLineGroup
     autocmd!
     autocmd FileType cpp,h nnoremap <buffer> gcc :call ToggleSingleLineComment('//')<CR>
+    autocmd FileType vim nnoremap <buffer> gcc :call ToggleSingleLineComment('"')<CR>
     autocmd FileType python nnoremap <buffer> gcc :call ToggleSingleLineComment('#')<CR>
 augroup END
 
 augroup CommentVisualLinesGroup
     autocmd!
     autocmd FileType cpp,h vnoremap gc :call ToggleBlockComment('//')<CR>
+    autocmd FileType vim vnoremap gc :call ToggleBlockComment('"')<CR>
     autocmd FileType python vnoremap gc :call ToggleBlockComment('#')<CR>
 augroup END

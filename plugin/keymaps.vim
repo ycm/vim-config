@@ -9,6 +9,9 @@ while c <= 'z'
 endw
 set timeout ttimeoutlen=50
 
+" toggle NERDTree
+nnoremap <leader>e :NERDTreeToggle<cr>
+
 " split resize
 nnoremap ,= :vertical resize +5<cr>
 nnoremap ,- :vertical resize -5<cr>
@@ -64,5 +67,3 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " clear highlights
 nnoremap <leader>/ :noh<CR>
-
-nnoremap <leader>e :Lexplore<CR>
