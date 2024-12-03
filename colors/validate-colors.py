@@ -24,13 +24,15 @@ def pop_field(f, l):
 
 ATTRS = ('ctermfg=', 'ctermbg=', 'cterm=', 'guifg=', 'guibg=', 'gui=')
 LINES_TO_WRITE = []
+INDENTS = {}
 with open(colo_file) as f:
     for i, line in enumerate(f):
         l = line.rstrip()
-        if l == 'hi clear' or l == 'highlight clear':
+        if line.strip() == 'hi clear' or line.strip() == 'highlight clear':
             LINES_TO_WRITE.append(l)
             continue
 
+        INDENTS[i] = len(l) - len(l.lstrip(' '))
         lsplit = l.split()
         if not lsplit:
             LINES_TO_WRITE.append('')
@@ -67,12 +69,13 @@ for l in LINES_TO_WRITE:
                 COL_LENS[i] = max(COL_LENS[i], len(c))
 
 with open(colo_file, 'w') as f:
-    for l in LINES_TO_WRITE:
+    for i, l in enumerate(LINES_TO_WRITE):
         if type(l) == str:
             print(l, file=f)
         else:
+            indent = ' ' * INDENTS[i]
             if l[-1] == 'LINK':
                 outstr = ' '.join([c.ljust(COL_LENS_LINK[i]) for i, c in enumerate(l[:-1])]).rstrip()
             else:
                 outstr = ' '.join([c.ljust(COL_LENS[i]) for i, c in enumerate(l)]).rstrip()
-            print(outstr, file=f)
+            print(indent + outstr, file=f)
