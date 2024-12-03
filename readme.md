@@ -11,3 +11,8 @@ alias vi='gvim'
 third-party plugins:
 
 - `NERDTree`
+- `vim-lsp`
+- `ALE`
+- `CtrlP`
+- Traces
+- Floaterm

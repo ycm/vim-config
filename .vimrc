@@ -24,6 +24,8 @@ set wildignore=*.o,*~,*.pyc,*/__pycache__/,.git/,.git/*,*.d,*.s,build/,build/*,*
 set ignorecase " Make search case-insensitive
 set smartcase " Make search case-sensitive if uppercase letter is used
 
+" set path+=** " Recursive find
+
 set termguicolors
 
 set wrap
@@ -43,6 +45,10 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'dense-analysis/ale'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'markonm/traces.vim'
+Plug 'chrisbra/Colorizer'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
@@ -57,4 +63,6 @@ colorscheme ycm_minimal_colors
 set noshowmode 
 set noshowcmd  
 set shortmess+=F 
+
+set ssop="blank,buffers,curdir,folds,help,tabpages,winsize,terminal" " remove options
 

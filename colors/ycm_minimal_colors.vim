@@ -7,18 +7,17 @@ endif
 let g:colors_name="ycm_minimal_colors"
 
 " CUSTOM STATUSLINE
-hi StatusLine      ctermfg=15    ctermbg=237 cterm=bold,italic
-hi StatusLineNC    ctermfg=250   ctermbg=242 cterm=bold,italic
-hi STLNormalMode   ctermfg=white ctermbg=130 cterm=bold,italic
-hi STLInsertMode   ctermfg=white ctermbg=028 cterm=bold,italic
-hi STLVisualMode   ctermfg=white ctermbg=92 cterm=bold,italic
-hi STLTerminalMode ctermfg=white ctermbg=037 cterm=bold,italic
-hi STLCommandMode  ctermfg=black ctermbg=003 cterm=bold,italic
-hi STLReplaceMode  ctermfg=white ctermbg=203 cterm=bold,italic
-hi STLGitBranch ctermfg=white ctermbg=24 cterm=bold,italic
-
-hi BlackOnYellowPop ctermfg=black ctermbg=003 cterm=bold,italic
-hi WhiteOnTealPop ctermfg=white ctermbg=037 cterm=bold,italic
+hi StatusLine           ctermfg=15      ctermbg=237     cterm=bold,italic
+hi StatusLineNC         ctermfg=250     ctermbg=242     cterm=bold,italic
+hi STLNormalMode        ctermfg=white   ctermbg=130     cterm=bold,italic
+hi STLInsertMode        ctermfg=white   ctermbg=028     cterm=bold,italic
+hi STLVisualMode        ctermfg=white   ctermbg=092     cterm=bold,italic
+hi STLTerminalMode      ctermfg=white   ctermbg=037     cterm=bold,italic
+hi STLCommandMode       ctermfg=black   ctermbg=003     cterm=bold,italic
+hi STLReplaceMode       ctermfg=white   ctermbg=203     cterm=bold,italic
+hi STLGitBranch         ctermfg=white   ctermbg=024     cterm=bold,italic
+hi BlackOnYellowPop     ctermfg=black   ctermbg=003     cterm=bold,italic
+hi WhiteOnTealPop       ctermfg=white   ctermbg=037     cterm=bold,italic
 
 " GENERAL HIGHLIGHTS
 hi      Character       ctermfg=90      ctermbg=none    cterm=none      guifg=#660066
@@ -28,16 +27,14 @@ hi      ColorColumn     ctermfg=none    ctermbg=none    cterm=none
 hi      Comment         ctermfg=240     ctermbg=none    cterm=none      guifg=#585858
 hi      Constant        ctermfg=none    ctermbg=none    cterm=none      guifg=#cc0000 
 hi      CurSearch       ctermfg=none    ctermbg=158     cterm=none                      guibg=#99ffcc
-hi      Cursor          ctermfg=none    ctermbg=none    cterm=none      
 hi      CursorLine      ctermfg=none    ctermbg=255     cterm=none                      guibg=#eeeeee
 hi      CursorLineNR    ctermfg=none    ctermbg=none    cterm=none      
 hi      Define          ctermfg=160     ctermbg=none    cterm=none      guifg=#cc0000
 hi      Directory       ctermfg=none    ctermbg=none    cterm=none      
 hi      Error                                           cterm=bold,italic guifg=#222222 guibg=#f7b39e 
-hi! link ErrorMsg Error
+hi link ErrorMsg        Error
 hi      Float           ctermfg=none    ctermbg=none    cterm=none      
 hi      Function        ctermfg=none    ctermbg=none    cterm=none      
-hi      Identifier      ctermfg=none    ctermbg=none    cterm=none      
 hi      Include         ctermfg=160     ctermbg=none    cterm=none      guifg=#cc0000
 hi      IncSearch       ctermfg=none    ctermbg=158     cterm=none                      guibg=#99ffcc
 hi      Keyword         ctermfg=160     ctermbg=none    cterm=none      guifg=#cc0000
@@ -49,31 +46,61 @@ hi      Number          ctermfg=27      ctermbg=none    cterm=none      guifg=#0
 hi      PreProc         ctermfg=160     ctermbg=none    cterm=none      guifg=#cc0000
 hi      Search          ctermfg=none    ctermbg=225     cterm=none                      guibg=#ffccff
 hi      SignColumn                      guibg=white     cterm=none      
-hi      Special         ctermfg=none    ctermbg=none    cterm=none      
 hi      SpellBad        ctermfg=none    ctermbg=none    cterm=reverse                                  gui=reverse
 hi      Statement       ctermfg=160     ctermbg=none    cterm=none      guifg=#cc0000
 hi      StorageClass    ctermfg=160     ctermbg=none    cterm=none      guifg=#cc0000
 hi      Type            ctermfg=160     ctermbg=none    cterm=none      guifg=#cc0000
 hi      Visual          ctermfg=none    ctermbg=194     cterm=none                      guibg=#cbe8f2
-hi! link Wildmenu STLCommandMode
-hi! link Todo Normal
+
+hi link Escape          String
+hi link Identifier      Keyword
+hi link Special         String
+hi link Delimiter       Normal 
+hi link Wildmenu        STLCommandMode
+hi link Todo            Normal
+hi link Variable        Normal
 
 " SPLITS
 hi      VertSplit                                       cterm=none
 set fillchars+=vert:\▏
 
-
 " FILETYPE-SPECIFIC
-hi link pythonBuiltin Keyword
-hi link cppConstant   Keyword
-hi      vimHiKeyError   ctermfg=none    ctermbg=none    cterm=underline 
-hi      vimHiAttribList ctermfg=none    ctermbg=none    cterm=underline 
-hi      vimHiCTermError ctermfg=none    ctermbg=none    cterm=underline 
-hi! link vimVar Keyword
-hi link vimHiCTermColor Number
-hi link vimNotation Number
-hi link vimMapModKey vimNotation
-hi      vimEscape       ctermfg=90                      cterm=bold
+hi link cppConstant         Keyword
+hi link pythonBuiltin       Keyword
+hi link cssColor            Number
+hi link cssVendor           Normal
+hi link javaScript          Normal
+hi link sqlKeyword          Keyword
+hi link shSetList           Normal
+hi link shQuote             String
+hi link shCommandSub        Number
+hi link shRange             Normal
+hi      vimHiKeyError       ctermfg=none    ctermbg=none    cterm=underline 
+hi      vimHiAttribList     ctermfg=none    ctermbg=none    cterm=underline 
+hi      vimHiCTermError     ctermfg=none    ctermbg=none    cterm=underline 
+hi link vimVar              Keyword
+hi link vimFuncVar          vimVar
+hi link vimHiCTermColor     Number
+hi link vimNotation         Number
+hi link vimBracket          vimNotation
+hi link vimMapModKey        vimNotation
+" hi      vimEscape           ctermfg=90                      cterm=bold
+hi      markdownH1          ctermfg=36                      cterm=bold,italic
+hi link markdownH2          markdownH1
+hi link markdownH3          markdownH1
+hi link markdownH4          markdownH1
+hi link markdownH5          markdownH1
+hi link markdownH6          markdownH1
+hi link markdownH1Delimiter markdownH1
+hi link markdownH2Delimiter markdownH1
+hi link markdownH3Delimiter markdownH1
+hi link markdownH4Delimiter markdownH1
+hi link markdownH5Delimiter markdownH1
+hi link markdownH6Delimiter markdownH1
+
+hi markdownUrl ctermfg=39 cterm=italic,underline
+hi markdownLinkDelimiter ctermfg=39 cterm=italic
+hi link markdownLinkTextDelimiter markdownLinkDelimiter
 
 " PLUGIN-SPECIFIC
 hi NERDTreeDir         ctermfg=27      ctermbg=none    cterm=bold 
@@ -101,6 +128,6 @@ hi ALEWarning            guibg=#ede3aa
 hi ALEWarningSign        guifg=#b28e40 cterm=bold,italic
 hi ALEVirtualTextWarning guifg=#b28e40 cterm=italic
 
-hi! link CtrlPMode1 StatusLine
-hi! link CtrlPMode2 BlackOnYellowPop
-hi! link CtrlPNoEntries StatusLine
+hi link CtrlPMode1 StatusLine
+hi link CtrlPMode2 BlackOnYellowPop
+hi link CtrlPNoEntries StatusLine

@@ -18,27 +18,17 @@ nnoremap ,- :vertical resize -5<cr>
 nnoremap ,[ :resize -3<cr>
 nnoremap ,] :resize +3<cr>
 
-" split window movement
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" allow window movement in terminal windows as well
-tnoremap <C-h> <C-w>h
-tnoremap <C-j> <C-w>j
-tnoremap <C-k> <C-w>k
-tnoremap <C-l> <C-w>l
-
 " file find
-nnoremap <leader>ff :e **/*
+" nnoremap <leader>ff :e **/*
+nnoremap <leader>ff :GFiles<CR>
+nnoremap <leader>rg :Rg<CR>
 " buffer navigation
 nnoremap <leader>fb :ls<CR>:b<Space>
 " ctrlP buffer
 nnoremap <leader>b :CtrlPBuffer<CR>
 
 " switch to terminal normal mode
-tnoremap <Esc> <C-w>N
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
 function! SplitTerminalToRight()
     vertical terminal
@@ -54,6 +44,18 @@ endfunction
 " split terminals
 nnoremap <leader>tl :call SplitTerminalToRight()<CR>
 nnoremap <leader>tj :call SplitTerminalBelow()<CR>
+
+" split window movement
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" allow window movement in terminal windows as well
+tnoremap <C-h> <C-w>h
+tnoremap <C-j> <C-w>j
+tnoremap <C-k> <C-w>k
+tnoremap <C-l> <C-w>l
 
 " clang-format (format only, don't write)
 nnoremap <leader>cf :let lpos = getpos('.')<CR>:%!clang-format<CR>:call setpos('.', lpos)<CR>

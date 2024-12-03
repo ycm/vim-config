@@ -6,35 +6,35 @@
 " If Vim is start *with* file arguments, then we treat this as a one-off edit
 " which shouldn't affect the existing session save.
 " Regardless of a session was opened, open NERDTree.
-fu! RestoreSess()
-if filereadable(getcwd() . '/.session.vim')
-    execute 'so ' . getcwd() . '/.session.vim'
-    if bufexists(1)
-        for l in range(1, bufnr('$'))
-            if bufwinnr(l) == -1
-                exec 'sbuffer ' . l
-            endif
-        endfor
+fun! RestoreSess()
+    if filereadable(getcwd() . '/.session.vim')
+        exec 'so ' . getcwd() . '/.session.vim'
+        if bufexists(1)
+            for l in range(1, bufnr('$'))
+                if bufwinnr(l) == -1
+                    exec 'sbuffer ' . l
+                endif
+            endfor
+        endif
     endif
-endif
-endfunction
+endfun
 autocmd StdinReadPre * let s:std_in=1
 fu! RestoreSessWrapper()
     if argc() == 0 && !exists('s:std_in')
         call RestoreSess()
         let g:working_on_restored_session = 1
     endif
-endfunction
+endfun
 autocmd VimEnter * nested call RestoreSessWrapper()
 
 " <HACK> NERDTree resizing messes with statusline
-autocmd VimEnter * NERDTreeToggle | wincmd p | call feedkeys("\<Esc>\<Esc>")
+autocmd VimEnter * NERDTreeToggle | wincmd p | call feedkeys("\<C-c>jk")
 
 " On exiting Vim, first close NERDTree. Then, if the current environment was
 " due to a session, overwrite the session file.
-fu! SaveSess()
+fun! SaveSess()
     execute 'mksession! ' . getcwd() . '/.session.vim'
-endfunction
+endfun
 autocmd VimLeave * NERDTreeClose
 autocmd VimLeave * if exists('g:working_on_restored_session') | call SaveSess() | endif
 
