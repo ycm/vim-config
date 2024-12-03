@@ -13,5 +13,11 @@ third-party plugins:
 - `NERDTree`
 - `vim-lsp`
 - `ALE`
-- `CtrlP`
-- Traces
+- `fzf`
+- `traces`
+- `auto-pairs`
+
+TODO:
+
+- rewrite statusline in vim9script
+- finish some dark mode highlights (e.g. search)

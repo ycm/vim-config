@@ -44,18 +44,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'prabirshrestha/vim-lsp'
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'dense-analysis/ale'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'markonm/traces.vim'
-Plug 'chrisbra/Colorizer'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
-
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$'
-  \ }
 
 set termguicolors
 colorscheme ycm_minimal_colors
@@ -64,5 +57,4 @@ set noshowmode
 set noshowcmd  
 set shortmess+=F 
 
-set ssop="blank,buffers,curdir,folds,help,tabpages,winsize,terminal" " remove options
-
+set ssop="blank,buffers,curdir,folds,help,tabpages,winsize,terminal" " remove options from session
