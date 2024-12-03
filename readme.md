@@ -15,4 +15,3 @@ third-party plugins:
 - `ALE`
 - `CtrlP`
 - Traces
-- Floaterm
