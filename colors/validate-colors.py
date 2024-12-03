@@ -43,7 +43,6 @@ with open(colo_file) as f:
                 LINES_TO_WRITE.append(lsplit + ['LINK'])
             else:
                 cmd, opts_remaining = lsplit[:2], lsplit[2:]
-                # cmd = [cmd[0], '', cmd[1]] # link
                 for attr in ATTRS:
                     val, opts_remaining = pop_field(attr, opts_remaining)
                     if len(val) > 1:

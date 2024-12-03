@@ -30,16 +30,16 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 " switch to terminal normal mode
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
-function! SplitTerminalToRight()
+fun! SplitTerminalToRight()
     vertical terminal
     wincmd L
-endfunction
-function! SplitTerminalBelow()
+endfun
+fun! SplitTerminalBelow()
     terminal
     wincmd J
     wincmd N
     resize 10
-endfunction
+endfun
 
 " split terminals
 nnoremap <leader>tl :call SplitTerminalToRight()<CR>

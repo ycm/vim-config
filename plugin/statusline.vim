@@ -54,3 +54,4 @@ fun! StatusLineWrapper() abort
 endfun
  
 set statusline=%!StatusLineWrapper()
+

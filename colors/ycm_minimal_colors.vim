@@ -31,7 +31,7 @@ hi CursorLine            ctermfg=none  ctermbg=255  cterm=none                  
 hi CursorLineNR          ctermfg=none  ctermbg=none cterm=none
 hi Define                ctermfg=160   ctermbg=none cterm=none             guifg=#cc0000
 hi Directory             ctermfg=none  ctermbg=none cterm=none
-hi Error                                            cterm=bold,italic      guifg=#222222 guibg=#f7b39e
+hi! Error                                            cterm=bold,italic      guifg=#222222 guibg=#f7b39e
 hi Float                 ctermfg=none  ctermbg=none cterm=none
 hi Function              ctermfg=none  ctermbg=none cterm=none
 hi Include               ctermfg=160   ctermbg=none cterm=none             guifg=#cc0000
@@ -83,6 +83,8 @@ hi vimHiCTermError       ctermfg=none  ctermbg=none cterm=underline
 hi link vimVar                    Keyword
 hi link vimFuncVar                vimVar
 hi link vimHiCTermColor           Number
+hi link vimGroup                  Normal
+hi link vimHiGroup                vimGroup
 hi link vimNotation               Number
 hi link vimBracket                vimNotation
 hi link vimMapModKey              vimNotation

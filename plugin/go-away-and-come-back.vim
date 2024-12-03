@@ -28,7 +28,7 @@ endfun
 autocmd VimEnter * nested call RestoreSessWrapper()
 
 " <HACK> NERDTree resizing messes with statusline
-autocmd VimEnter * NERDTreeToggle | wincmd p | call feedkeys("\<C-c>jk")
+" autocmd VimEnter * NERDTreeToggle | wincmd p | call feedkeys("\<C-c>jk")
 
 " On exiting Vim, first close NERDTree. Then, if the current environment was
 " due to a session, overwrite the session file.
