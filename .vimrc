@@ -46,16 +46,16 @@ Plug 'markonm/traces.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
-Plug 'Eliot00/auto-pairs'
+" Plug 'Eliot00/auto-pairs'
 " Plug 'lifepillar/vim-devel' " for colortemplate
 Plug 'lifepillar/vim-colortemplate/'
 call plug#end()
 
 set fillchars+=vert:\▕
 
-
 set termguicolors
-set background=dark
+" set notermguicolors t_Co=16
+set background=light
 let g:enough_colors_opt_transp_bg=1
 colo enough
 
