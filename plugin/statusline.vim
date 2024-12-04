@@ -2,6 +2,7 @@ set laststatus=2 " always show statusline
  
 fun! StatusLineModeStringMaker(wid)
     let l:indic = ''
+    let l:is_term = 0
     if a:wid == win_getid()
         if mode() == 'n'
             let l:indic = l:indic . "%#STLNormalMode# 一般 "
@@ -9,6 +10,7 @@ fun! StatusLineModeStringMaker(wid)
             let l:indic = l:indic . "%#STLInsertMode# 插入 "
         elseif mode() == 't'
             let l:indic = l:indic . "%#STLTerminalMode# 終端 "
+            let l:is_term = 1
         elseif mode() == 'c'
             let l:indic = l:indic . "%#STLCommandMode# 命令 "
         elseif mode() == "\<C-V>"
@@ -20,7 +22,13 @@ fun! StatusLineModeStringMaker(wid)
         elseif mode() == 'r'
             let l:indic = l:indic . "%#STLReplaceMode# 替換 "
         endif
+        if l:is_term
+            return l:indic . "%#StatusLineTerm#"
+        endif
         return l:indic . "%#StatusLine#"
+    endif
+    if mode() == 't'
+        return "%#StatusLineTermNC#"
     endif
     return "%#StatusLineNC# "
 endfun
@@ -33,25 +41,18 @@ fun! StatusLineSessionStringMaker(wid)
         else
             let l:indic = l:indic . "%#BlackOnYellowPop# 無會話 "
         endif
-        return l:indic . "%#StatusLine#"
-    endif
-    return ""
-endfun
-
-fun! StatusLineGitBranch(wid)
-    if a:wid == win_getid() && mode() != 't'
-        let l:output = system("git rev-parse --abbrev-ref HEAD")
-        if !v:shell_error
-            return "%#STLGitBranch#  " . trim(l:output) . " %#StatusLine#"
+        if mode() == 't'
+            return l:indic . "%#StatusLineTerm#"
         endif
+        return l:indic . "%#StatusLine#"
     endif
     return ""
 endfun
 
 fun! StatusLineWrapper() abort
     let l:wid = win_getid()
-    return "%{%StatusLineModeStringMaker(" . l:wid . ")%}" . "\ %r\ %f\ %m%=" ."%{%StatusLineGitBranch(".l:wid.")%}". "%{%StatusLineSessionStringMaker(" . l:wid . ")%}" . "\ %l/%L\ "
+    return "%{%StatusLineModeStringMaker(" . l:wid . ")%}" . "\ %r\ %f\ %m%=%{%StatusLineSessionStringMaker(" . l:wid . ")%}" . "\ %l/%L\ "
 endfun
  
 set statusline=%!StatusLineWrapper()
-
+set statusline=

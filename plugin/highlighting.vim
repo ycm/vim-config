@@ -1,5 +1,6 @@
 vim9script
 
+
 def MatchTodoLabels()
     call matchadd('TodoLabel', '<TODO>')
     call matchadd('FixLabel', '<FIX>')
@@ -9,6 +10,11 @@ def MatchTodoLabels()
     call matchadd('InfoLabel', '<INFO>')
     call matchadd('InfoLabel', '<NOTE>')
 enddef
+
+if &background == '&background'
+    augroup DummyGroup
+    augroup END
+endif
 
 augroup TodoLabelsGroup
     autocmd!

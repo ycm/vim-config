@@ -26,8 +26,6 @@ set smartcase " Make search case-sensitive if uppercase letter is used
 
 " set path+=** " Recursive find
 
-set termguicolors
-
 set wrap
 set linebreak
 
@@ -46,15 +44,24 @@ Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'dense-analysis/ale'
 Plug 'markonm/traces.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
-Plug 'jiangmiao/auto-pairs'
+Plug 'Eliot00/auto-pairs'
+" Plug 'lifepillar/vim-devel' " for colortemplate
+Plug 'lifepillar/vim-colortemplate/'
 call plug#end()
 
-set termguicolors
-colorscheme ycm_minimal_colors
+set fillchars+=vert:\▕
 
+
+set termguicolors
+set background=dark
+let g:enough_colors_opt_transp_bg=1
+colo enough
+
+set mouse=a
 set noshowmode 
 set noshowcmd  
 set shortmess+=F 
 
-set ssop="blank,buffers,curdir,folds,help,tabpages,winsize,terminal" " remove options from session
+set ssop=blank,buffers,curdir,folds,help,tabpages,winsize,terminal 

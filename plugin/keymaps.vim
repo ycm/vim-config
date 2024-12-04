@@ -9,14 +9,14 @@ while c <= 'z'
 endw
 set timeout ttimeoutlen=50
 
-" toggle NERDTree
-nnoremap <leader>e :NERDTreeToggle<cr>
-
 " split resize
 nnoremap ,= :vertical resize +5<cr>
 nnoremap ,- :vertical resize -5<cr>
 nnoremap ,[ :resize -3<cr>
 nnoremap ,] :resize +3<cr>
+
+" alternate file
+nnoremap <leader><Tab> :e#<cr>
 
 " file find
 " nnoremap <leader>ff :e **/*
@@ -24,8 +24,6 @@ nnoremap <leader>ff :GFiles<CR>
 nnoremap <leader>rg :Rg<CR>
 " buffer navigation
 nnoremap <leader>fb :ls<CR>:b<Space>
-" ctrlP buffer
-nnoremap <leader>b :CtrlPBuffer<CR>
 
 " switch to terminal normal mode
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"

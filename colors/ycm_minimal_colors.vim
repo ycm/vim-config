@@ -23,25 +23,26 @@ hi  WhiteOnTealPop        ctermfg=white ctermbg=037  cterm=bold,italic
 hi  Character             ctermfg=90    ctermbg=none cterm=none             guifg=#660066
 hi  ColorColumn           ctermfg=none  ctermbg=none cterm=none
 hi  Comment               ctermfg=240   ctermbg=none cterm=none             guifg=#585858
-hi  Constant              ctermfg=none  ctermbg=none cterm=none             guifg=#cc0000
+" hi  Constant              ctermfg=none  ctermbg=none cterm=none             guifg=#cc0000
 hi  CurSearch             ctermfg=none  ctermbg=158  cterm=none                           guibg=#99ffcc
+hi  CursorLine            ctermfg=none  ctermbg=255  cterm=none                           guibg=#eeeeee
 hi  CursorLineNR          ctermfg=none  ctermbg=none cterm=none
 hi  Directory             ctermfg=none  ctermbg=none cterm=none
-hi! Error                                            cterm=bold,italic      guifg=#222222 guibg=#f7b39e
 hi  Float                 ctermfg=none  ctermbg=none cterm=none
 hi  Function              ctermfg=none  ctermbg=none cterm=none
 hi  IncSearch             ctermfg=none  ctermbg=158  cterm=none                           guibg=#99ffcc
 hi  Keyword               ctermfg=160   ctermbg=none cterm=none             guifg=#cc0000
+hi  LineNr                ctermfg=240   ctermbg=none cterm=none             guifg=#585858
 hi  MatchParen            ctermfg=none  ctermbg=228  cterm=none                           guibg=#ffff66
 hi  Normal                ctermfg=none  ctermbg=none cterm=none
 hi  Number                ctermfg=27    ctermbg=none cterm=none             guifg=#005fff
 hi  Search                ctermfg=none  ctermbg=225  cterm=none                           guibg=#ffccff
 hi  SignColumn                                       cterm=none                           guibg=white
 hi  SpellBad              ctermfg=none  ctermbg=none cterm=reverse                                      gui=reverse
-hi  Visual                ctermfg=none  ctermbg=194  cterm=none                           guibg=#cbe8f2
-hi  LineNr                ctermfg=240   ctermbg=none cterm=none             guifg=#585858
 hi  String                ctermfg=90    ctermbg=none cterm=none             guifg=#660066
-hi  CursorLine            ctermfg=none  ctermbg=255  cterm=none                           guibg=#eeeeee
+hi  Visual                ctermfg=none  ctermbg=194  cterm=none                           guibg=#cbe8f2
+
+hi! Error                                            cterm=bold,italic      guifg=#222222 guibg=#f7b39e
 
 if &background == "dark"
     hi! Keyword               ctermfg=160   ctermbg=none cterm=none             guifg=#b5575f
@@ -49,31 +50,39 @@ if &background == "dark"
     hi! MatchParen            ctermfg=none  ctermbg=228  cterm=none                           guibg=#454231
     hi  String                ctermfg=135   ctermbg=none cterm=none             guifg=#b36fb0
     hi  CursorLine            ctermfg=none  ctermbg=238  cterm=none                           guibg=#333333
+    hi  CurSearch                           ctermbg=22   cterm=none             guifg=white   guibg=#446644
+    hi  Search                              ctermbg=22   cterm=none             guifg=white   guibg=#444444
+    hi! Error                                            cterm=bold,italic      guifg=white   guibg=#b5575f
+    " hi! Visual                ctermfg=none  ctermbg=238  cterm=none                           guibg=#333333
     hi! link SignColumn                CursorLine
+    hi! link IncSearch                 CurSearch
     hi! link CursorLineNR              Comment
     hi! link LineNr                    Comment
     hi! link Visual                    CursorLine
 endif
 
-hi! link PreProc                   Keyword
-hi! link Include                   Keyword
-hi! link Macro                     Keyword
-hi! link Statement                 Keyword
-hi! link Define                    Keyword
-hi! link StorageClass              Keyword
-hi! link Type                      Keyword
-hi  link Escape                    String
-hi  link Special                   String
-hi! link ErrorMsg                  Error
-hi  link Identifier                Keyword
+hi! link Constant                  Keyword
 hi  link Delimiter                 Normal
+hi  link Escape                    String
+hi! link Identifier                Keyword
 hi  link Todo                      Normal
 hi  link Variable                  Normal
-hi  link Wildmenu                  STLCommandMode
+hi! link Define                    Keyword
+hi! link ErrorMsg                  Error
+hi! link Include                   Keyword
+hi! link Macro                     Keyword
+hi! link PreProc                   Keyword
+hi! link Special                   String
+hi! link Statement                 Keyword
+hi! link StorageClass              Keyword
+hi! link Todo                      Normal
+hi! link Type                      Keyword
+hi! link WarningMsg                Error
+hi! link Wildmenu                  STLCommandMode
 
 " SPLITS
 hi  VertSplit                                        cterm=none
-set fillchars+=vert:\▏
+" set fillchars+=vert:\▏
 
 " FILETYPE-SPECIFIC
 hi  link cppConstant               Keyword
@@ -150,7 +159,8 @@ if &background == "dark"
     hi  ALEWarningSign                                   cterm=bold,italic      guifg=#b28e40 guibg=#333333
 endif
 
-hi  link CtrlPMode1                StatusLine
-hi  link CtrlPMode2                BlackOnYellowPop
-hi  link CtrlPNoEntries            CtrlPMode1
+" others
+highlight ButanoLog ctermbg=green cterm=bold,italic
+highlight ButanoAssert ctermbg=yellow cterm=bold,italic 
+highlight ButanoError ctermbg=red cterm=bold,italic
 

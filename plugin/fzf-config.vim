@@ -1,19 +1,36 @@
-" <NOTE> In .bashrc, export BAT_THEME='gruvbox-light' or some light color
+hi FZFCurrItemLight guifg=#220000
+hi FZFCurrItemDark guifg=white
+hi FZFSearchHighlightLight guifg=#cc0000 
+hi FZFSearchHighlightDark guifg=#49740e
+hi FZFPreviewBg guibg=#333333
+hi FZFGutterLight guibg=#00aa00
+hi FZFGutterDark guibg=#000044
+hi FZFPointerLight guibg=#cc0000
+hi FZFPointerDark guibg=#49740e
 
-hi FZFCurrItem guifg=#220000
-hi FZFSearchHighlight guifg=#cc0000 
-
-command! -bang -nargs=* Rg
-    \ call fzf#vim#grep(
-    \ 'rg --line-number ' . fzf#shellescape(<q-args>),
-    \ fzf#vim#with_preview(),
-    \ <bang>0)
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column  --no-heading --smart-case -- " . fzf#shellescape(<q-args>), fzf#vim#with_preview(), <bang>0)
 
 let g:fzf_vim = {}
-let g:fzf_colors =
-    \ { 'fg':      ['fg', 'Normal'],
-    \ 'bg':      ['bg', 'Normal'],
-    \ 'hl':      ['fg', 'FZFSearchHighlight'],
-    \ 'fg+':     ['fg', 'FZFCurrItem'],
-    \ 'bg+':     ['bg', 'CursorLine'],
-    \ 'hl+':     ['fg', 'FZFSearchHighlight']}
+if &background == 'light' 
+    let g:fzf_colors =
+        \ { 'fg':         ['fg', 'Normal'],
+        \   'hl':         ['fg', 'FZFSearchHighlightLight'],
+        \   'bg':         ['bg', 'Normal'],
+        \   'fg+':        ['fg', 'FZFCurrItemLight'],
+        \   'bg+':        ['bg', 'CursorLine'],
+        \   'hl+':        ['fg', 'FZFSearchHighlightLight'],
+        \   'gutter':     ['bg', 'Normal'],
+        \   'pointer':    ['bg', 'FZFPointerLight'],
+        \   'preview-bg': ['bg', 'FZFPreviewBg']}
+else
+    let g:fzf_colors =
+        \ { 'fg':         ['fg', 'Normal'],
+        \   'hl':         ['fg', 'FZFSearchHighlightDark'],
+        \   'bg':         ['bg', 'Normal'],
+        \   'fg+':        ['fg', 'FZFCurrItemDark'],
+        \   'bg+':        ['bg', 'CursorLine'],
+        \   'hl+':        ['fg', 'FZFSearchHighlightDark'],
+        \   'gutter':     ['bg', 'Normal'],
+        \   'pointer':    ['bg', 'FZFPointerDark'],
+        \   'preview-bg': ['bg', 'FZFPreviewBg']}
+endif
