@@ -55,7 +55,12 @@ set fillchars+=vert:\▕
 
 set termguicolors
 " set notermguicolors t_Co=16
-set background=light
+if system("gsettings get org.gnome.desktop.interface color-scheme") =~ 'prefer-dark'
+   set background=dark
+else
+   set background=light
+endif
+
 let g:enough_colors_opt_transp_bg=1
 colo enough
 
