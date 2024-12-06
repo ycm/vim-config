@@ -9,6 +9,7 @@ def MatchTodoLabels()
     call matchadd('GenericYellowPop',  '<HACK>')
     call matchadd('GenericGreenPop',   '<INFO>')
     call matchadd('GenericGreenPop',   '<NOTE>')
+    call matchadd('GenericGreenPop',   '<DONE>')
 enddef
 
 augroup TodoLabelsGroup

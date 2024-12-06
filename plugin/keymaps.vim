@@ -1,5 +1,12 @@
 let mapleader = " "
 
+" harpy
+nnoremap <silent> <leader>ll :Harpy<cr>
+nnoremap <silent> <leader>la :HarpyAdd<cr>
+
+" shimp
+nnoremap <silent> <leader>sh :ShimpToggle<cr>
+
 " overloads Esc to simulate Alt
 let c='a'
 while c <= 'z'
@@ -20,10 +27,10 @@ nnoremap <leader><Tab> :e#<cr>
 
 " file find
 " nnoremap <leader>ff :e **/*
-nnoremap <leader>ff :GFiles<CR>
-nnoremap <leader>rg :Rg<CR>
+nnoremap <leader>ff :GFiles<cr>
+nnoremap <leader>rg :Rg<cr>
 " buffer navigation
-nnoremap <leader>fb :ls<CR>:b<Space>
+nnoremap <leader>fb :ls<cr>:b<Space>
 
 " switch to terminal normal mode
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
@@ -40,8 +47,8 @@ fun! SplitTerminalBelow()
 endfun
 
 " split terminals
-nnoremap <leader>tl :call SplitTerminalToRight()<CR>
-nnoremap <leader>tj :call SplitTerminalBelow()<CR>
+nnoremap <leader>tl :call SplitTerminalToRight()<cr>
+nnoremap <leader>tj :call SplitTerminalBelow()<cr>
 
 " split window movement
 nnoremap <C-h> <C-w>h
@@ -56,15 +63,15 @@ tnoremap <C-k> <C-w>k
 tnoremap <C-l> <C-w>l
 
 " clang-format (format only, don't write)
-nnoremap <leader>cf :let lpos = getpos('.')<CR>:%!clang-format<CR>:call setpos('.', lpos)<CR>
+nnoremap <leader>cf :let lpos = getpos('.')<cr>:%!clang-format<cr>:call setpos('.', lpos)<cr>
 
 " line/paragraph movement
-nnoremap <A-j> :move +1<CR>==
-nnoremap <A-k> :move -2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+nnoremap <A-j> :move +1<cr>==
+nnoremap <A-k> :move -2<cr>==
+inoremap <A-j> <Esc>:m .+1<cr>==gi
+inoremap <A-k> <Esc>:m .-2<cr>==gi
+vnoremap <A-j> :m '>+1<cr>gv=gv
+vnoremap <A-k> :m '<-2<cr>gv=gv
 
 " clear highlights
-nnoremap <leader>/ :noh<CR>
+nnoremap <leader>/ :noh<cr>
