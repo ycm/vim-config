@@ -1,5 +1,7 @@
 vim9script
 
+# <TODO> fix NERDTree<>BufLeave interaction in go-away-and-come-back.vim
+
 set number
 set relativenumber
 set smartindent
@@ -15,7 +17,7 @@ set cursorline
 
 syntax enable
 set hlsearch
-set incsearch # incremental search
+set incsearch
 set showmatch
 
 set clipboard=unnamedplus
@@ -23,16 +25,14 @@ set clipboard=unnamedplus
 set wildmenu
 set wildignore=*.o,*~,*.pyc,*/__pycache__/,.git/,.git/*,*.d,*.s,build/,build/*,*.png,*.bmp,*.gif,*json,plugged/,plugged/*
 
-set ignorecase # Make search case-insensitive
-set smartcase # Make search case-sensitive if uppercase letter is used
-
-# set path+=** # Recursive find
+set ignorecase
+set smartcase
 
 set wrap
 set linebreak
 
-set undolevels=1000 # Increase the undo history
-# set undofile # Enable persistent undo
+set undolevels=1000
+# set undofile # enable persistent undo
 
 # https://nickjanetakis.com/blog/change-your-vim-cursor-from-a-block-to-line-in-normal-and-insert-mode
 &t_SI = "\e[6 q"
@@ -57,14 +57,14 @@ set completeopt+=popup # completions in popup instead of preview window
 
 set fillchars+=vert:\▕
 
-# set notermguicolors t_Co=16
 set termguicolors
+# set notermguicolors t_Co=16
+# set notermguicolors t_Co=8
 if system("gsettings get org.gnome.desktop.interface color-scheme") =~ 'prefer-dark'
    set background=dark
 else
    set background=light
 endif
-
 
 g:enough_colors_opt_transp_bg = 1
 colo enough

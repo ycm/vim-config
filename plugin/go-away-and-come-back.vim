@@ -19,26 +19,25 @@ fun! RestoreSess()
     endif
 endfun
 autocmd StdinReadPre * let s:std_in=1
-fu! RestoreSessWrapper()
+fun! RestoreSessWrapper()
     if argc() == 0 && !exists('s:std_in')
         call RestoreSess()
         let g:working_on_restored_session = 1
     endif
 endfun
 autocmd VimEnter * nested call RestoreSessWrapper()
-
-" <HACK> NERDTree resizing messes with statusline
-" autocmd VimEnter * NERDTreeToggle | wincmd p | call feedkeys("\<C-c>jk")
+autocmd VimEnter * NERDTreeToggle | wincmd p
 
 " On exiting Vim, first close NERDTree. Then, if the current environment was
 " due to a session, overwrite the session file.
 fun! SaveSess()
-    execute 'mksession! ' . getcwd() . '/.session.vim'
+    let l:path = getcwd() . '/.session.vim'
+    call inputsave()
+    let l:choice = input('Save session to ' . l:path . '? (y to confirm) ')
+    if l:choice ==? 'y'
+        execute 'mksession! ' . getcwd() . '/.session.vim'
+    endif
 endfun
 autocmd VimLeave * NERDTreeClose
 autocmd VimLeave * if exists('g:working_on_restored_session') | call SaveSess() | endif
-
-" If NERDTree is the last file open, then exit out of Vim.
-" <HACK> NERDTree changes the alternate file, so use CtrlPBuffers to quickly open up
-" a Buffer, and :wqa.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(" b\<CR>:wqa\<CR>\<BS>") | endif
+" autocmd BufLeave * 
