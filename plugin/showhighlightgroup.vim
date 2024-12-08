@@ -18,4 +18,4 @@ def ShowHighlightGroupRecursive()
   endif
 enddef
 
-command! ShowHighlightGroup call ShowHighlightGroupRecursive()
+command! ShowHighlightGroup ShowHighlightGroupRecursive()

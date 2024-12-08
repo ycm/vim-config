@@ -11,3 +11,5 @@ function! DeleteHiddenBuffers()
   endfor
   echo "Closed ".closed." hidden buffers"
 endfunction
+
+command! DeleteHiddenBuffers call DeleteHiddenBuffers()

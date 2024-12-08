@@ -32,12 +32,17 @@ autocmd VimEnter * NERDTreeToggle | wincmd p
 " due to a session, overwrite the session file.
 fun! SaveSess()
     let l:path = getcwd() . '/.session.vim'
-    call inputsave()
-    let l:choice = input('Save session to ' . l:path . '? (y to confirm) ')
-    if l:choice ==? 'y'
-        execute 'mksession! ' . getcwd() . '/.session.vim'
+    if filereadable(l:path)
+        execute 'mksession! ' . l:path
+    else
+        call inputsave()
+        let l:choice = input('Save session to ' . l:path . '? (enter "save" to save) ')
+        call inputrestore()
+        if l:choice ==? 'save'
+            execute 'mksession! ' . l:path
+        endif
     endif
 endfun
 autocmd VimLeave * NERDTreeClose
-autocmd VimLeave * if exists('g:working_on_restored_session') | call SaveSess() | endif
+autocmd VimLeave * if get(g:, 'working_on_restored_session', v:false) | call SaveSess() | endif
 " autocmd BufLeave * 
