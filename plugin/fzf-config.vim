@@ -1,36 +1,36 @@
-hi FZFCurrItemLight guifg=#220000
+vim9script
+
+hi FrFCurrItemLight guifg=#220000
 hi FZFCurrItemDark guifg=white
 hi FZFSearchHighlightLight guifg=#cc0000 
 hi FZFSearchHighlightDark guifg=#49740e
 hi FZFPreviewBg guibg=#333333
-hi FZFGutterLight guibg=#00aa00
-hi FZFGutterDark guibg=#000044
 hi FZFPointerLight guibg=#cc0000
 hi FZFPointerDark guibg=#49740e
 
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column  --no-heading --smart-case -- " . fzf#shellescape(<q-args>), fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column  --no-heading --smart-case -- " .. fzf#shellescape(<q-args>), fzf#vim#with_preview(), <bang>0)
 
-let g:fzf_vim = {}
+g:fzf_vim = {}
 if &background == 'light' 
-    let g:fzf_colors =
-        \ { 'fg':         ['fg', 'Normal'],
-        \   'hl':         ['fg', 'FZFSearchHighlightLight'],
-        \   'bg':         ['bg', 'Normal'],
-        \   'fg+':        ['fg', 'FZFCurrItemLight'],
-        \   'bg+':        ['bg', 'CursorLine'],
-        \   'hl+':        ['fg', 'FZFSearchHighlightLight'],
-        \   'gutter':     ['bg', 'Normal'],
-        \   'pointer':    ['bg', 'FZFPointerLight'],
-        \   'preview-bg': ['bg', 'FZFPreviewBg']}
+    g:fzf_colors = {
+        'fg':         ['fg', 'Normal'],
+        'hl':         ['fg', 'FZFSearchHighlightLight'],
+        'bg':         ['bg', 'Normal'],
+        'fg+':        ['fg', 'FZFCurrItemLight'],
+        'bg+':        ['bg', 'CursorLine'],
+        'hl+':        ['fg', 'FZFSearchHighlightLight'],
+        'gutter':     ['bg', 'Normal'],
+        'pointer':    ['bg', 'FZFPointerLight'],
+        'preview-bg': ['bg', 'FZFPreviewBg']}
 else
-    let g:fzf_colors =
-        \ { 'fg':         ['fg', 'Normal'],
-        \   'hl':         ['fg', 'FZFSearchHighlightDark'],
-        \   'bg':         ['bg', 'Normal'],
-        \   'fg+':        ['fg', 'FZFCurrItemDark'],
-        \   'bg+':        ['bg', 'CursorLine'],
-        \   'hl+':        ['fg', 'FZFSearchHighlightDark'],
-        \   'gutter':     ['bg', 'Normal'],
-        \   'pointer':    ['bg', 'FZFPointerDark'],
-        \   'preview-bg': ['bg', 'FZFPreviewBg']}
+    g:fzf_colors = {
+        'fg':         ['fg', 'Normal'],
+        'hl':         ['fg', 'FZFSearchHighlightDark'],
+        'bg':         ['bg', 'Normal'],
+        'fg+':        ['fg', 'FZFCurrItemDark'],
+        'bg+':        ['bg', 'CursorLine'],
+        'hl+':        ['fg', 'FZFSearchHighlightDark'],
+        'gutter':     ['bg', 'Normal'],
+        'pointer':    ['bg', 'FZFPointerDark'],
+        'preview-bg': ['bg', 'FZFPreviewBg']}
 endif

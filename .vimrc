@@ -4,12 +4,16 @@ vim9script
 
 set backspace=indent,eol,start
 set clipboard=unnamedplus
+set completeopt+=popup # completions in popup instead of preview window
 set cursorline
 set expandtab
+set fillchars+=vert:\▕,eob:\ 
+set foldmethod=syntax
 set hlsearch
 set ignorecase
 set incsearch
 set linebreak
+set noshowmode 
 set number
 set relativenumber
 set scrolloff=2
@@ -32,10 +36,9 @@ syntax enable
 
 &t_SI = "\e[6 q"
 &t_EI = "\e[2 q"
-
 g:netrw_banner = 0 # hide netrw banner
 
-# vim-plug {{{
+# vim-plug ----------------------------------------------------------------- {{{
 plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
     g:NERDTreeMapOpenVSplit = 'v'
@@ -47,6 +50,10 @@ Plug 'lifepillar/vim-colortemplate/'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
 Plug 'LunarWatcher/auto-pairs'
+Plug 'ubaldot/vim-highlight-yanked'
+    g:hlyanked_hlgroup = 'GenericGreen'
+    g:hlyanked_timeout = 500 # [ms]
+    g:hlyanked_save_yanks = true
 Plug 'tpope/vim-eunuch'
 Plug 'Valloric/YouCompleteMe'
     g:ycm_show_diagnostics_ui = 0
@@ -57,11 +64,7 @@ Plug '~/garden/shimp'
 plug#end()
 # }}}
 
-set completeopt+=popup # completions in popup instead of preview window
-
-set fillchars+=vert:\▕
-
-# colors {{{
+# colors ------------------------------------------------------------------- {{{
 set termguicolors
 # set notermguicolors t_Co=16
 # set notermguicolors t_Co=8
@@ -74,12 +77,13 @@ g:enough_colors_opt_transp_bg = 1
 colo enough
 # }}}
 
-# set mouse=a
-set noshowmode 
-# set noshowcmd  
-# set shortmess+=S
-
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
-augroup END
+augroup end
+
+augroup cursorline_focus
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
+augroup end

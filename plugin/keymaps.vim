@@ -5,7 +5,7 @@ g:mapleader = ' '
 # harpy (<leader>l...) ----------------------------------------------------- {{{
 nnoremap <silent> <leader>ll :Harpy<cr>
 nnoremap <silent> <leader>la :HarpyAdd<cr>
-# -------------------------------------------------------------------------- }}}
+# }}}
 
 # shimp (<leader>sh...) ---------------------------------------------------- {{{
 nnoremap <silent> <leader>she :ShimpToggle<cr>
@@ -13,23 +13,23 @@ nnoremap <silent> <leader>shV :ShimpToggle left<cr>
 nnoremap <silent> <leader>shv :ShimpToggle right<cr>
 nnoremap <silent> <leader>shS :ShimpToggle top<cr>
 nnoremap <silent> <leader>shs :ShimpToggle below<cr>
-# -------------------------------------------------------------------------- }}}
+# }}}
 
 # nerdtree ----------------------------------------------------------------- {{{
 nnoremap <silent> <leader>e :NERDTreeToggle<cr>
-# -------------------------------------------------------------------------- }}}
+# }}}
 
 # fzf (<leader>ff and <leader>rg) ------------------------------------------ {{{
 nnoremap <silent> <leader>ff :GFiles<cr>
 nnoremap <silent> <leader>rg :Rg<cr>
-# -------------------------------------------------------------------------- }}}
+# }}}
 
 # highlight ---------------------------------------------------------------- {{{
 # highlight word under cursor
 nnoremap * *``
 # clear highlights
 nnoremap <silent> <leader>/ :noh<cr>
-# -------------------------------------------------------------------------- }}}
+# }}}
 
 # line/paragraph mvmt (H,j,J,k,K,L) ---------------------------------------- {{{
 nnoremap <silent> J :move +1<cr>==
@@ -78,12 +78,17 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+inoremap <C-h> <Esc><C-w>h
+inoremap <C-j> <Esc><C-w>j
+inoremap <C-k> <Esc><C-w>k
+inoremap <C-l> <Esc><C-w>l
+
 # allow window movement in terminal windows as well
 tnoremap <C-h> <C-w>h
 tnoremap <C-j> <C-w>j
 tnoremap <C-k> <C-w>k
 tnoremap <C-l> <C-w>l
-# -------------------------------------------------------------------------- }}}
+# }}}
 
 # open a scratch buffer (<leader>n...) ------------------------------------- {{{
 export def OpenScratch(pos: string)
@@ -123,10 +128,14 @@ nnoremap <leader>nh :OpenScratch left<cr>
 nnoremap <leader>nj :OpenScratch below<cr>
 nnoremap <leader>nk :OpenScratch top<cr>
 nnoremap <leader>nl :OpenScratch right<cr>
-# -------------------------------------------------------------------------- }}}
+# }}}
 
-# alternate file
-nnoremap <leader><Tab> :e#<cr>
+# tabs 
+nnoremap <leader><left> gT
+nnoremap <leader><right> gt
+
+# alternative file
+# nnoremap <leader><Tab> :e#<cr>
 
 # buffer navigation
 nnoremap <leader>fb :ls<cr>:b<Space>

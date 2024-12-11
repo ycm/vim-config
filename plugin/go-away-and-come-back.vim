@@ -26,7 +26,7 @@ fun! RestoreSessWrapper()
     endif
 endfun
 autocmd VimEnter * nested call RestoreSessWrapper()
-autocmd VimEnter * NERDTreeToggle | wincmd p
+" autocmd VimEnter * NERDTreeToggle | wincmd p
 
 " On exiting Vim, first close NERDTree. Then, if the current environment was
 " due to a session, overwrite the session file.
