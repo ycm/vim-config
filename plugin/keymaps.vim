@@ -130,12 +130,14 @@ nnoremap <leader>nk :OpenScratch top<cr>
 nnoremap <leader>nl :OpenScratch right<cr>
 # }}}
 
-# tabs 
-nnoremap <leader><left> gT
-nnoremap <leader><right> gt
-
-# alternative file
-# nnoremap <leader><Tab> :e#<cr>
+# enclose selection in brackets (not for v-line and v-block) --------------- {{{
+vnoremap <leader>( c()<Esc>Pl
+vnoremap <leader>[ c[]<Esc>Pl
+vnoremap <leader>{ c{}<Esc>Pl
+vnoremap <leader>< c<><Esc>Pl
+vnoremap <leader>' c''<Esc>Pl
+vnoremap <leader>" c""<Esc>Pl
+# }}}
 
 # buffer navigation
 nnoremap <leader>fb :ls<cr>:b<Space>
