@@ -60,9 +60,10 @@ Plug 'Valloric/YouCompleteMe'
     g:ycm_show_diagnostics_ui = 0
     g:ycm_key_list_select_completion = ['<Tab>']     # otherwise interfere with innoremap <up>/<down>
     g:ycm_key_list_previous_completion = ['<S-Tab>']
+Plug 'kmonad/kmonad-vim'
 Plug '~/garden/shimp'
-Plug 'ycm/poplar.vim'
-# Plug '~/garden/poplar.vim'
+# Plug 'ycm/poplar.vim'
+Plug '~/garden/poplar.vim'
     g:poplar = {
         diropensymb: '▾',
         dirclosedsymb: '▸',

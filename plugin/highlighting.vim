@@ -1,23 +1,35 @@
 vim9script
 
+if !'GenericBluePop'->hlexists()
+    if &background ==? 'dark'
+        hi GenericRedPop ctermfg=131 ctermbg=235 cterm=bold,italic
+        hi GenericGreenPop ctermfg=71 ctermbg=235 cterm=bold,italic
+        hi GenericYellowPop ctermfg=137 ctermbg=236 cterm=bold,italic
+        hi GenericBluePop ctermfg=110 ctermbg=235 cterm=bold,italic
+        hi GenericMagentaPop ctermfg=133 ctermbg=235 cterm=bold,italic
+        hi GenericCyanPop ctermfg=72 ctermbg=235 cterm=bold,italic
+    else
+        hi GenericRedPop ctermfg=160 ctermbg=217 cterm=bold,italic
+        hi GenericGreenPop ctermfg=28 ctermbg=194 cterm=bold,italic
+        hi GenericYellowPop ctermfg=100 ctermbg=229 cterm=bold,italic
+        hi GenericBluePop ctermfg=26 ctermbg=153 cterm=bold,italic
+        hi GenericMagentaPop ctermfg=91 ctermbg=255 cterm=bold,italic
+        hi GenericCyanPop ctermfg=65 ctermbg=254 cterm=bold,italic
+    endif
+endif
 
 def MatchTodoLabels()
-    call matchadd('GenericBluePop',    '<TODO>')
-    call matchadd('GenericRedPop',     '<FIX>')
-    call matchadd('GenericMagentaPop', '<DEBUG>')
-    call matchadd('GenericYellowPop',  '<WARN>')
-    call matchadd('GenericYellowPop',  '<HACK>')
-    call matchadd('GenericGreenPop',   '<INFO>')
-    call matchadd('GenericGreenPop',   '<NOTE>')
-    call matchadd('GenericGreenPop',   '<DONE>')
+    matchadd('GenericBluePop',    '<TODO>')
+    matchadd('GenericRedPop',     '<FIX>')
+    matchadd('GenericMagentaPop', '<DEBUG>')
+    matchadd('GenericYellowPop',  '<WARN>')
+    matchadd('GenericYellowPop',  '<HACK>')
+    matchadd('GenericGreenPop',   '<INFO>')
+    matchadd('GenericGreenPop',   '<NOTE>')
+    matchadd('GenericGreenPop',   '<DONE>')
 enddef
 
 augroup TodoLabelsGroup
     autocmd!
-    # autocmd FileType * highlight TodoLabel  ctermbg=black ctermfg=075 cterm=bold,italic,reverse
-    # autocmd FileType * highlight FixLabel   ctermbg=black ctermfg=202 cterm=bold,italic,reverse
-    # autocmd FileType * highlight DebugLabel ctermbg=black ctermfg=213 cterm=bold,italic,reverse
-    # autocmd FileType * highlight WarnLabel  ctermbg=black ctermfg=221 cterm=bold,italic,reverse
-    # autocmd FileType * highlight InfoLabel  ctermbg=black ctermfg=252 cterm=bold,italic,reverse
     autocmd BufRead,BufNewFile *.cpp,*.h,*.vim,*.py call MatchTodoLabels()
 augroup END
