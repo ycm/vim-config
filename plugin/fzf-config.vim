@@ -16,7 +16,7 @@ if &background == 'light'
         'fg':         ['fg', 'Normal'],
         'hl':         ['fg', 'FZFSearchHighlightLight'],
         'bg':         ['bg', 'Normal'],
-        'fg+':        ['fg', 'FZFCurrItemLight'],
+        'fg+':        ['fg', 'Normal'],
         'bg+':        ['bg', 'CursorLine'],
         'hl+':        ['fg', 'FZFSearchHighlightLight'],
         'gutter':     ['bg', 'Normal'],
