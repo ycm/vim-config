@@ -1,6 +1,6 @@
 vim9script
 
-hi FrFCurrItemLight guifg=#220000
+hi FZFCurrItemLight guifg=#220000
 hi FZFCurrItemDark guifg=white
 hi FZFSearchHighlightLight guifg=#cc0000 
 hi FZFSearchHighlightDark guifg=#49740e
@@ -16,7 +16,7 @@ if &background == 'light'
         'fg':         ['fg', 'Normal'],
         'hl':         ['fg', 'FZFSearchHighlightLight'],
         'bg':         ['bg', 'Normal'],
-        'fg+':        ['fg', 'Normal'],
+        'fg+':        ['fg', 'FZFCurrItemLight'],
         'bg+':        ['bg', 'CursorLine'],
         'hl+':        ['fg', 'FZFSearchHighlightLight'],
         'gutter':     ['bg', 'Normal'],

@@ -2,11 +2,8 @@ vim9script
 
 g:mapleader = ' '
 
+# poplar (<leader>p...) ----------------------------------------------------- {{{
 nnoremap <silent> <leader>p :Poplar<cr>
-
-# harpy (<leader>l...) ----------------------------------------------------- {{{
-nnoremap <silent> <leader>ll :Harpy<cr>
-nnoremap <silent> <leader>la :HarpyAdd<cr>
 # }}}
 
 # shimp (<leader>sh...) ---------------------------------------------------- {{{
@@ -15,10 +12,6 @@ nnoremap <silent> <leader>shV :ShimpToggle left<cr>
 nnoremap <silent> <leader>shv :ShimpToggle right<cr>
 nnoremap <silent> <leader>shS :ShimpToggle top<cr>
 nnoremap <silent> <leader>shs :ShimpToggle below<cr>
-# }}}
-
-# nerdtree ----------------------------------------------------------------- {{{
-# nnoremap <silent> <leader>e :NERDTreeToggle<cr>
 # }}}
 
 # fzf (<leader>ff and <leader>rg) ------------------------------------------ {{{
@@ -140,9 +133,6 @@ vnoremap <leader>< c<><Esc>Pl
 vnoremap <leader>' c''<Esc>Pl
 vnoremap <leader>" c""<Esc>Pl
 # }}}
-
-# write to a privileged file
-cnoremap w!! w !sudo tee > /dev/null %
 
 # buffer navigation
 nnoremap <leader>fb :ls<cr>:b<Space>

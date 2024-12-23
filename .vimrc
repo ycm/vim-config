@@ -1,7 +1,5 @@
 vim9script
 
-# <TODO> fix NERDTree<>BufLeave interaction in go-away-and-come-back.vim
-
 set backspace=indent,eol,start
 set clipboard=unnamedplus
 set completeopt+=popup # completions in popup instead of preview window
@@ -73,17 +71,15 @@ plug#end()
 
 # colors ------------------------------------------------------------------- {{{
 set termguicolors
-# set notermguicolors t_Co=16
-# set notermguicolors t_Co=8
 if system("gsettings get org.gnome.desktop.interface color-scheme") =~ 'prefer-dark'
    set background=dark
 else
    set background=light
 endif
 g:enough_colors_opt_transp_bg = 1
-colo enough
-hi! link PoplarMenuSel CursorLine
-hi! link PoplarMenu Normal
+colorscheme enough
+highlight! link PoplarMenuSel CursorLine
+highlight! link PoplarMenu Normal
 # }}}
 
 augroup filetype_vim

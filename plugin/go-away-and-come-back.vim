@@ -43,6 +43,6 @@ fun! SaveSess()
         endif
     endif
 endfun
-autocmd VimLeave * NERDTreeClose
+" autocmd VimLeave * NERDTreeClose
 autocmd VimLeave * if get(g:, 'working_on_restored_session', v:false) | call SaveSess() | endif
 " autocmd BufLeave * 
