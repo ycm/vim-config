@@ -52,7 +52,25 @@ if g:os =~? 'linux'
     g:ycm_show_diagnostics_ui = 0
     g:ycm_key_list_select_completion = ['<Tab>']
     g:ycm_key_list_previous_completion = ['<S-Tab>']
+    Plug '~/garden/shimp'
 endif
+
+if '~/garden/poplar.vim'->isdirectory()
+    Plug '~/garden/poplar.vim'
+else
+    Plug 'ycm/poplar.vim'
+endif
+g:poplar = {
+    diropensymb: '▾',
+    dirclosedsymb: '▸',
+}
+
+if '~/garden/shimp'->isdirectory()
+    Plug '~/garden/shimp'
+else
+    Plug 'ycm/shimp'
+endif
+
 Plug 'markonm/traces.vim' # range, pattern, and substitute preview
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -66,13 +84,6 @@ Plug 'ubaldot/vim-highlight-yanked'
     g:hlyanked_save_yanks = true
 Plug 'tpope/vim-eunuch'
 Plug 'kmonad/kmonad-vim'
-Plug '~/garden/shimp'
-# Plug 'ycm/poplar.vim'
-Plug '~/garden/poplar.vim'
-    g:poplar = {
-        diropensymb: '▾',
-        dirclosedsymb: '▸',
-    }
 plug#end()
 # }}}
 
