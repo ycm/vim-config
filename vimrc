@@ -90,8 +90,8 @@ plug#end()
 # colors ------------------------------------------------------------------- {{{
 set termguicolors
 set background=dark
+if g:os =~? 'linux' && 'gsettings get org.gnome.desktop.interface color-scheme'->system()->trim() =~ 'default'
    set background=light
-   if g:os =~? 'linux' && 'gsettings get org.gnome.desktop.interface color-scheme'->system()->trim() =~ 'default'
 endif
 g:enough_colors_opt_transp_bg = 1
 colorscheme enough
