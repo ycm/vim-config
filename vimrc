@@ -33,7 +33,7 @@ set wrap
 syntax enable
 
 if !'g:os'->exists()
-    g:os = has('win64') || has('win32') || has('win16')
+    g:os = has('win64') || has('win32') || has('win16') || has('win32unix')
             ? 'Windows'
             : 'uname'->system()->trim()
 endif
