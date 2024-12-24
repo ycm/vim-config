@@ -38,7 +38,9 @@ if !'g:os'->exists()
             : 'uname'->system()->trim()
 endif
 
-if g:os =~? 'linux'
+g:hostname = 'hostname'->system()->trim()
+
+if g:hostname == 'lavender'
     set clipboard=unnamedplus
 endif
 
@@ -47,7 +49,7 @@ endif
 
 # vim-plug ----------------------------------------------------------------- {{{
 plug#begin('~/.vim/plugged')
-if g:os =~? 'linux'
+if g:hostname == 'lavender'
     Plug 'Valloric/YouCompleteMe'
     g:ycm_show_diagnostics_ui = 0
     g:ycm_key_list_select_completion = ['<Tab>']
@@ -55,8 +57,8 @@ if g:os =~? 'linux'
     Plug '~/garden/shimp'
 endif
 
-if '~/garden/poplar.vim'->isdirectory()
-    Plug '~/garden/poplar.vim'
+if '/home/ycm/garden/poplar.vim'->isdirectory()
+    Plug '/home/ycm/garden/poplar.vim'
 else
     Plug 'ycm/poplar.vim'
 endif
@@ -65,8 +67,8 @@ g:poplar = {
     dirclosedsymb: '▸',
 }
 
-if '~/garden/shimp'->isdirectory()
-    Plug '~/garden/shimp'
+if '/home/ycm/garden/shimp'->isdirectory()
+    Plug '/home/ycm/garden/shimp'
 else
     Plug 'ycm/shimp'
 endif
@@ -90,7 +92,7 @@ plug#end()
 # colors ------------------------------------------------------------------- {{{
 set termguicolors
 set background=dark
-if g:os =~? 'linux' && 'gsettings get org.gnome.desktop.interface color-scheme'->system()->trim() =~ 'default'
+if g:hostname == 'lavender' && 'gsettings get org.gnome.desktop.interface color-scheme'->system()->trim() =~ 'default'
    set background=light
 endif
 g:enough_colors_opt_transp_bg = 1
