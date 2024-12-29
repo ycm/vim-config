@@ -99,9 +99,15 @@ g:enough_colors_opt_transp_bg = 1
 colorscheme enough
 highlight! link PoplarMenuSel CursorLine
 highlight! link PoplarMenu Normal
-highlight! PoplarGitStaged ctermfg=darkgreen
-highlight! PoplarGitModified ctermfg=darkyellow
-highlight! PoplarGitRenamed ctermfg=darkmagenta
+if &background == 'light'
+    highlight! PoplarGitStaged ctermfg=darkgreen
+    highlight! PoplarGitModified ctermfg=darkyellow
+    highlight! PoplarGitRenamed ctermfg=darkmagenta
+else
+    highlight! PoplarGitStaged ctermfg=lightgreen guifg=#6eb46e
+    highlight! PoplarGitModified ctermfg=lightyellow guifg=#b48c5a
+    highlight! PoplarGitRenamed ctermfg=lightmagenta guifg=#b46eb4
+endif
 # }}}
 
 augroup filetype_vim
