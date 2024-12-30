@@ -86,6 +86,7 @@ Plug 'ubaldot/vim-highlight-yanked'
     g:hlyanked_save_yanks = true
 Plug 'tpope/vim-eunuch'
 Plug 'kmonad/kmonad-vim'
+Plug 'JuliaEditorSupport/julia-vim'
 plug#end()
 # }}}
 

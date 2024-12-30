@@ -140,5 +140,9 @@ nnoremap <leader>fb :ls<cr>:b<Space>
 # switch to terminal normal mode
 tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
-# clang-format (format only, don't write)
-nnoremap <silent> <leader>cf :let lpos = getpos('.')<cr>:%!clang-format<cr>:call setpos('.', lpos)<cr>
+# clang-format
+augroup AutoClangFormatGroup
+    autocmd!
+    autocmd FileType cpp,h nnoremap <silent> <buffer> <C-s> :let pos = getpos('.')<CR>:%!clang-format<CR>setpos('.', pos)<CR>:w<CR>
+    autocmd FileType cpp,h nnoremap <silent> <buffer> <leader>cf :let lpos = getpos('.')<cr>:%!clang-format<cr>:call setpos('.', lpos)<cr>
+augroup END
