@@ -51,7 +51,7 @@ endfun
 
 fun! StatusLineWrapper() abort
     let l:wid = win_getid()
-    return "%{%StatusLineModeStringMaker(" . l:wid . ")%}" . "\ %r\ %f\ %m%=%{%StatusLineSessionStringMaker(" . l:wid . ")%}" . "\ %l/%L\ "
+    return "%{%StatusLineModeStringMaker(" . l:wid . ")%}" . "\ %r\ %f\ %m%=C%c:L%l/%L\ %{%StatusLineSessionStringMaker(" . l:wid . ")%}\ "
 endfun
  
 set statusline=%!StatusLineWrapper()

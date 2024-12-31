@@ -30,6 +30,7 @@ set undolevels=1000
 set wildignore=*.o,*~,*.pyc,*/__pycache__/,.git/,.git/*,*.d,*.s,build/,build/*,*.png,*.bmp,*.gif,*json,plugged/,plugged/*
 set wildmenu
 set wrap
+filetype plugin on
 syntax enable
 
 if !'g:os'->exists()
@@ -55,6 +56,7 @@ if g:hostname == 'lavender'
     g:ycm_key_list_select_completion = ['<Tab>']
     g:ycm_key_list_previous_completion = ['<S-Tab>']
     Plug '~/garden/shimp'
+    Plug 'lifepillar/vim-colortemplate/'
 endif
 
 if '/home/ycm/garden/poplar.vim'->isdirectory()
@@ -76,7 +78,6 @@ endif
 Plug 'markonm/traces.vim' # range, pattern, and substitute preview
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-# Plug 'lifepillar/vim-colortemplate/'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
 Plug 'LunarWatcher/auto-pairs'
@@ -86,6 +87,7 @@ Plug 'ubaldot/vim-highlight-yanked'
     g:hlyanked_save_yanks = true
 Plug 'tpope/vim-eunuch'
 Plug 'kmonad/kmonad-vim'
+Plug 'vimwiki/vimwiki'
 Plug 'JuliaEditorSupport/julia-vim'
 plug#end()
 # }}}
