@@ -89,6 +89,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'kmonad/kmonad-vim'
 Plug 'vimwiki/vimwiki'
 Plug 'JuliaEditorSupport/julia-vim'
+Plug 'ycm/enough-colors'
 plug#end()
 # }}}
 
