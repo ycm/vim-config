@@ -2,34 +2,21 @@ vim9script
 
 set backspace=indent,eol,start
 set completeopt+=popup # completions in popup instead of preview window
-set cursorline
-set expandtab
+set expandtab smartindent smarttab softtabstop=4 tabstop=4 shiftwidth=4
 set fillchars+=vert:\▕,eob:\ 
 set foldmethod=syntax
-set hlsearch
-set ignorecase
-set incsearch
-set linebreak
+set hlsearch incsearch ignorecase smartcase
 set nocompatible
 set noshowmode 
-set number
-set relativenumber
-set scrolloff=2
+set number relativenumber cursorline
+set smoothscroll scrolloff=2 wrap linebreak
 set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize,terminal 
-set shiftwidth=4
 set showmatch
-set smartcase
-set smartindent
-set smarttab
-set smoothscroll
-set softtabstop=4
-set splitright
-set tabstop=4
+set splitbelow splitright
 set timeout ttimeoutlen=50
 set undolevels=1000
-set wildignore=*.o,*~,*.pyc,*/__pycache__/,.git/,.git/*,*.d,*.s,build/,build/*,*.png,*.bmp,*.gif,*json,plugged/,plugged/*
-set wildmenu
-set wrap
+set wildmenu wildignore=*.o,*~,*.pyc,*/__pycache__/,.git/,.git/*,*.d,*.s,build/,build/*,*.png,*.bmp,*.gif,*json,plugged/,plugged/*
+
 filetype plugin on
 syntax enable
 
@@ -40,13 +27,14 @@ if !'g:os'->exists()
 endif
 
 g:hostname = 'hostname'->system()->trim()
+if g:hostname == 'lavender' | set clipboard=unnamedplus | endif
 
-if g:hostname == 'lavender'
-    set clipboard=unnamedplus
-endif
-
+# cursor
 &t_SI = "\e[6 q"
 &t_EI = "\e[2 q"
+
+# disable netrw
+g:loaded_netrw = 1
 
 # vim-plug ----------------------------------------------------------------- {{{
 plug#begin('~/.vim/plugged')
@@ -55,7 +43,6 @@ if g:hostname == 'lavender'
     g:ycm_show_diagnostics_ui = 0
     g:ycm_key_list_select_completion = ['<Tab>']
     g:ycm_key_list_previous_completion = ['<S-Tab>']
-    Plug '~/garden/shimp'
     Plug 'lifepillar/vim-colortemplate/'
 endif
 
@@ -86,10 +73,13 @@ Plug 'ubaldot/vim-highlight-yanked'
     g:hlyanked_timeout = 500 # [ms]
     g:hlyanked_save_yanks = true
 Plug 'tpope/vim-eunuch'
-Plug 'kmonad/kmonad-vim'
 Plug 'vimwiki/vimwiki'
-Plug 'JuliaEditorSupport/julia-vim'
 Plug 'ycm/enough-colors'
+
+# filetype-specific
+Plug 'kmonad/kmonad-vim'
+Plug 'JuliaEditorSupport/julia-vim'
+
 plug#end()
 # }}}
 

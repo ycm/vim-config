@@ -29,3 +29,27 @@ def ShowHighlightGroup()
 enddef
 command! ShowHighlightGroup ShowHighlightGroup()
 # }}}
+
+# Go away and come back ---------------------------------------------------- {{{
+# cf. https://stackoverflow.com/a/6052704
+def RestoreSess()
+    if $'{getcwd()}/.session.vim'->filereadable()
+        execute $'source {getcwd()}/.session.vim'
+    endif
+    g:working_on_restored_session = 1
+enddef
+autocmd VimEnter * ++nested RestoreSess()
+
+def SaveSess()
+    var path = $'{getcwd()}/.session.vim'
+    if path->filereadable()
+        execute $'mksession! {path}'
+    else
+        inputsave()
+        var choice = $'Save session to {path}? (enter "save" to save) '->input()
+        inputrestore()
+        if choice == 'save' | execute $'mksession! {path}' | endif
+    endif
+enddef
+autocmd VimLeave * if g:->get('working_on_restored_session', false) | SaveSess() | endif
+# }}}
