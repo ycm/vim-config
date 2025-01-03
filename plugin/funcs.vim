@@ -33,10 +33,13 @@ command! ShowHighlightGroup ShowHighlightGroup()
 # Go away and come back ---------------------------------------------------- {{{
 # cf. https://stackoverflow.com/a/6052704
 def RestoreSess()
+    # no session if Vim was opened to edit a specific file
+    if v:argv[-1]->filereadable() | return | endif
+
     if $'{getcwd()}/.session.vim'->filereadable()
         execute $'source {getcwd()}/.session.vim'
     endif
-    g:working_on_restored_session = 1
+    g:working_on_session = 1
 enddef
 autocmd VimEnter * ++nested RestoreSess()
 
@@ -51,5 +54,5 @@ def SaveSess()
         if choice == 'save' | execute $'mksession! {path}' | endif
     endif
 enddef
-autocmd VimLeave * if g:->get('working_on_restored_session', false) | SaveSess() | endif
+autocmd VimLeave * if g:->get('working_on_session', false) | SaveSess() | endif
 # }}}
