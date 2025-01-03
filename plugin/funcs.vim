@@ -34,7 +34,7 @@ command! ShowHighlightGroup ShowHighlightGroup()
 # cf. https://stackoverflow.com/a/6052704
 def RestoreSess()
     # no session if Vim was opened to edit a specific file
-    if v:argv[-1]->filereadable() | return | endif
+    if v:argv->len() > 1 && v:argv[-1][0] != '-' | return | endif
 
     if $'{getcwd()}/.session.vim'->filereadable()
         execute $'source {getcwd()}/.session.vim'
