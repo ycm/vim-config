@@ -78,7 +78,6 @@ Plug 'ubaldot/vim-highlight-yanked'
     g:hlyanked_timeout = 500 # [ms]
     g:hlyanked_save_yanks = true
 Plug 'tpope/vim-eunuch'
-Plug 'vimwiki/vimwiki'
 Plug 'ycm/enough-colors'
 
 # filetype-specific
