@@ -1,9 +1,9 @@
 vim9script
 
 set backspace=indent,eol,start
-set completeopt+=popup # completions in popup instead of preview window
+set completeopt+=popup
 set expandtab smartindent smarttab softtabstop=4 tabstop=4 shiftwidth=4
-set fillchars+=vert:\▕,eob:\ 
+set fillchars+=eob:\ 
 set foldmethod=syntax
 set hlsearch incsearch ignorecase smartcase
 set nocompatible
@@ -27,7 +27,12 @@ if !'g:os'->exists()
 endif
 
 g:hostname = 'hostname'->system()->trim()
-if g:hostname == 'lavender' | set clipboard=unnamedplus | endif
+if g:hostname == 'lavender'
+    set clipboard=unnamedplus
+    set fillchars+=vert:\▕
+elseif g:os == 'Windows'
+    set novisualbell
+endif
 
 # cursor
 &t_SI = "\e[6 q"
