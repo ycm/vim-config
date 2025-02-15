@@ -89,11 +89,10 @@ plug#end()
 
 # colors ------------------------------------------------------------------- {{{
 set termguicolors
-# set background=dark
-# if g:hostname == 'lavender' && 'gsettings get org.gnome.desktop.interface color-scheme'->system()->trim() =~ 'default'
-#     set background=light
-# endif
-set background=light
+set background=dark
+if g:hostname == 'lavender' && 'gsettings get org.gnome.desktop.interface color-scheme'->system()->trim() =~ 'default'
+   set background=light
+endif
 g:enough_colors_opt_transp_bg = 1
 colorscheme enough
 highlight! link PoplarMenuSel CursorLine
