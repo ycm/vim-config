@@ -27,12 +27,18 @@ if !'g:os'->exists()
 endif
 
 g:hostname = 'hostname'->system()->trim()
-if g:hostname == 'lavender'
+if g:hostname == 'lavender' || g:hostname == 'manjushaka'
     set clipboard=unnamedplus
     set fillchars+=vert:\▕
+    g:wayland_clipboard_unnamedplus = 1
 elseif g:os == 'Windows'
     set novisualbell
 endif
+
+if $TERM == 'xterm-kitty'
+    set keyprotocol=kitty:mok2
+endif
+
 
 # cursor
 &t_SI = "\e[6 q"
@@ -83,6 +89,7 @@ Plug 'ycm/enough-colors'
 # filetype-specific
 Plug 'kmonad/kmonad-vim'
 Plug 'JuliaEditorSupport/julia-vim'
+Plug 'jasonccox/vim-wayland-clipboard'
 
 plug#end()
 # }}}
@@ -90,7 +97,7 @@ plug#end()
 # colors ------------------------------------------------------------------- {{{
 set termguicolors
 set background=dark
-if g:hostname == 'lavender' && 'gsettings get org.gnome.desktop.interface color-scheme'->system()->trim() =~ 'default'
+if (g:hostname == 'lavender' || g:hostname == 'manjushaka') && 'gsettings get org.gnome.desktop.interface color-scheme'->system()->trim() =~ 'default'
    set background=light
 endif
 g:enough_colors_opt_transp_bg = 1
@@ -118,3 +125,4 @@ augroup cursorline_focus
     autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     autocmd WinLeave * setlocal nocursorline
 augroup END
+
