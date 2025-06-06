@@ -63,8 +63,8 @@ else
     Plug 'ycm/poplar.vim'
 endif
 g:poplar = {
-    diropensymb: '▾',
-    dirclosedsymb: '▸',
+    diropensymb: '',
+    dirclosedsymb: '',
 }
 
 if '/home/ycm/garden/shimp'->isdirectory()
@@ -97,7 +97,7 @@ plug#end()
 # colors ------------------------------------------------------------------- {{{
 set termguicolors
 set background=dark
-if (g:hostname == 'lavender' || g:hostname == 'manjushaka') && 'gsettings get org.gnome.desktop.interface color-scheme'->system()->trim() =~ 'default'
+if 'gsettings get org.gnome.desktop.interface color-scheme'->system()->trim() =~ 'light'
    set background=light
 endif
 g:enough_colors_opt_transp_bg = 1
