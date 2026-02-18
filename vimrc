@@ -84,12 +84,15 @@ Plug 'ubaldot/vim-highlight-yanked'
     g:hlyanked_timeout = 500 # [ms]
     g:hlyanked_save_yanks = true
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 Plug 'ycm/enough-colors'
 
 # filetype-specific
 Plug 'kmonad/kmonad-vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'jasonccox/vim-wayland-clipboard'
+Plug 'klimeryk/vim-monkey-c'
 
 plug#end()
 # }}}
