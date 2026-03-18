@@ -86,6 +86,7 @@ Plug 'ubaldot/vim-highlight-yanked'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'psf/black'
 Plug 'ycm/enough-colors'
 
 # filetype-specific
