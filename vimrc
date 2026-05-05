@@ -78,7 +78,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
-Plug 'LunarWatcher/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'ubaldot/vim-highlight-yanked'
     g:hlyanked_hlgroup = 'Visual'
     g:hlyanked_timeout = 500 # [ms]
@@ -94,6 +95,7 @@ Plug 'kmonad/kmonad-vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'jasonccox/vim-wayland-clipboard'
 Plug 'klimeryk/vim-monkey-c'
+Plug 'elkowar/yuck.vim'
 
 plug#end()
 # }}}
