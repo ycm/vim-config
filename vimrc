@@ -49,7 +49,7 @@ g:loaded_netrw = 1
 
 # vim-plug ----------------------------------------------------------------- {{{
 plug#begin('~/.vim/plugged')
-if g:hostname == 'lavender'
+if g:hostname == 'manjushaka'
     Plug 'Valloric/YouCompleteMe'
     g:ycm_show_diagnostics_ui = 0
     g:ycm_key_list_select_completion = ['<Tab>']
@@ -63,8 +63,8 @@ else
     Plug 'ycm/poplar.vim'
 endif
 g:poplar = {
-    diropensymb: '',
-    dirclosedsymb: '',
+    diropensymb: '',
+    dirclosedsymb: '',
 }
 
 if '/home/ycm/garden/shimp'->isdirectory()
@@ -96,6 +96,7 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'jasonccox/vim-wayland-clipboard'
 Plug 'klimeryk/vim-monkey-c'
 Plug 'elkowar/yuck.vim'
+Plug 'bhurlow/vim-parinfer'
 
 plug#end()
 # }}}
